@@ -1,9 +1,9 @@
 .BreadBottom {
-    height: 10%;
+    height: 9%;
     width: 65%;
     background: linear-gradient(#F08E4A, #e27b36);
     border-radius: 5px 5px 30px 30px;
-    box-shadow: inset -15px 0 #c15711;
+    box-shadow: inset -15px 0 #ce7032;
     margin: 1% auto;
 }
 
@@ -12,7 +12,7 @@
     width: 65%;
     background: linear-gradient(#bc581e, #e27b36);
     border-radius: 55% 55% 5px 5px;
-    box-shadow: inset -15px 0 #c15711;
+    box-shadow: inset -15px 0 #c66124;
     margin: 1% auto;
     position: relative;
 }
@@ -99,7 +99,7 @@
 
 .Salad {
     width: 68%;
-    height: 5%;
+    height: 4%;
     margin: 1% auto;
     background: linear-gradient(#228c1d, #91ce50);
     border-radius: 20px;
