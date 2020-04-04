@@ -34,8 +34,8 @@ const withErrorHandler = (WrappedComponent, axios) => {
                     <Modal
                         show={this.state.error}
                         modalClosed={this.errorConfirmedHandler}>
-                        Something went wrong!
-                        {this.state.error ? this.state.error.message : null}
+                        <p style={{textAlign: 'center'}}><b>Something went wrong!</b></p>
+                        <p style={{textAlign: 'center'}}>{this.state.error ? this.state.error.message : null}</p>
                     </Modal>
                     <WrappedComponent {...this.props} />
                 </Auxiliary>
