@@ -8,6 +8,22 @@
     font-size: 1.2rem;
 }
 
+::-webkit-scrollbar {
+    border-radius: 5px;
+    width: 10px;
+    height: 10px;
+  }
+
+::-webkit-scrollbar-track {
+    background-color: rgb(0,0,0,0.2);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(0,0,0,0.3);
+    border-radius: 5px;
+}
+
 @media (min-width: 500px) and (max-height: 400px) {
     .Burger {
         width: 350px;

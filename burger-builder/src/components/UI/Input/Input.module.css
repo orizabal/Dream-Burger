@@ -28,6 +28,6 @@
 }
 
 .Invalid {
-    border: 1px solid red;
-    background-color: rgb(253, 192, 185);
+    box-shadow: 0 0 3px red;
+    background-color: rgb(253, 192, 185, 0.3);
 }
