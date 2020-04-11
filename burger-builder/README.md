@@ -1,4 +1,4 @@
-(https://burger-builder-7b992.web.app/ "Hosted here")
+[Hosted here](https://burger-builder-7b992.web.app/)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
