@@ -43,6 +43,16 @@ class Auth extends Component {
         isSignUp: true
     }
 
+    componentDidMount () {
+        console.log('[Auth.js]: in componentDidMount() line 47.');
+        console.log('buildingBurger: ' + this.props.buildingBurger + ', redirectPath: ' + this.props.authRedirectPath);
+        console.log(!this.props.buildingBurger && this.props.authRedirectPath !== '/');
+        if (!this.props.buildingBurger && this.props.authRedirectPath !== '/') {
+            console.log('[Auth.js]: will set auth redirect path to /');
+            this.props.onSetAuthRedirectPath('/');
+        }
+    }
+
     checkValidity(value, rules) {
         let isValid = true;
 
@@ -130,9 +140,21 @@ class Auth extends Component {
             )
         }
 
+        console.log('[Auth,js]: line 143 - !buildingBurger:' + !this.props.buildingBurger + ', authRedirectPath: ' + this.props.authRedirectPath);
+        console.log('[Auth.js]: line 144 - this.props.isAuthenticated: ' + this.props.isAuthenticated);
+        if (!this.props.buildingBurger && this.props.authRedirectPath !== '/') {
+            console.log('[Auth.js]: line 144: will set auth redirect path to /');
+            this.props.onSetAuthRedirectPath('/');
+        } else if (!this.props.buildingBurger && this.props.isAuthenticated) {
+            console.log('[Auth.js]: line 149: will set auth redirect path to /checkout');
+            this.props.onSetAuthRedirectPath('/checkout');
+        }
+
         let authRedirect = null;
         if (this.props.isAuthenticated) {
-            authRedirect = <Redirect to="/"/>
+            console.log(this.props.authRedirectPath);
+            console.log(this.props.token);
+            authRedirect = <Redirect to={this.props.authRedirectPath}/>
         }
 
         return (
@@ -155,13 +177,17 @@ const mapStateToProps = state => {
     return {
         loading: state.auth.loading,
         error: state.auth.error,
-        isAuthenticated: state.auth.token !== null
+        isAuthenticated: state.auth.token !== null,
+        token: state.auth.token, // Take this out after you're done goofin
+        buildingBurger: state.burgerBuilder.building,
+        authRedirectPath: state.auth.authRedirectPath
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        onAuth: (email, password, isSignUp) => dispatch(actions.auth(email, password, isSignUp))
+        onAuth: (email, password, isSignUp) => dispatch(actions.auth(email, password, isSignUp)),
+        onSetAuthRedirectPath: (path) => dispatch(actions.setAuthRedirectPath(path))
     };
 };
 
